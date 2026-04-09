@@ -189,6 +189,26 @@
             </div>
           {{ end }}
 
+          {{/* =================== MEDIUM LINK =================== */}}
+          {{ with .Params.mediumURL }}
+            <div class="mt-8 p-5 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800/50 dark:to-slate-800/30 border border-slate-200 dark:border-slate-700">
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center size-10 rounded-lg bg-black dark:bg-white shrink-0">
+                  <svg class="h-5 w-5 fill-white dark:fill-black" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-semibold text-slate-900 dark:text-white">Bu yazı Medium'da da yayınlandı</p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Beğendiyseniz Medium'da da alkışlayabilirsiniz 👏</p>
+                </div>
+                <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+                   class="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black dark:bg-white text-white dark:text-black text-sm font-semibold hover:opacity-80 transition-opacity no-underline">
+                  <span>Medium'da Oku</span>
+                  <span class="material-symbols-outlined text-base">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          {{ end }}
+
           {{/* =================== ARTICLE PAGINATION (Prev/Next) =================== */}}
           {{ $prev := .PrevInSection }}
           {{ $next := .NextInSection }}

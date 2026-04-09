@@ -6,7 +6,7 @@ enableSearch = true
 enableCodeCopy = true
 disableImageZoom = true
 mainSections = ["posts"]
-robots = ""
+robots = "index, follow"
 
 [header]
   layout = "fixed"
@@ -36,7 +36,7 @@ robots = ""
   showBreadcrumbs = false
   showDraftLabel = true
   showEdit = false
-  editURL = "https://github.com/tunagrskn/tg-blog/tree/main/content"
+  editURL = "https://github.com/tunagirisken/tg-blog/tree/main/content"
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true

@@ -23,6 +23,7 @@ usage() {
   echo "  clean       public/ klasorunu temizle"
   echo "  zip         Siteyi derle ve site.zip olustur"
   echo "  deploy      Derle, zip'le ve hazirla"
+  echo "  ftp         Derle ve FTP ile sunucuya yukle (lftp)"
   echo "  help        Bu yardim mesajini goster"
   echo ""
 }
@@ -80,6 +81,48 @@ do_deploy() {
   echo -e "${GREEN}========================================${NC}"
 }
 
+do_ftp() {
+  if ! command -v lftp &>/dev/null; then
+    echo -e "${RED}Hata: lftp kurulu degil!${NC}"
+    echo "Kurulum: sudo apt install lftp"
+    exit 1
+  fi
+
+  ENV_FILE="$PROJECT_DIR/.env"
+  if [ ! -f "$ENV_FILE" ]; then
+    echo -e "${RED}Hata: .env dosyasi bulunamadi!${NC}"
+    echo "Olusturun: cp .env.example .env && nano .env"
+    exit 1
+  fi
+  source "$ENV_FILE"
+
+  if [ -z "${FTP_PASS:-}" ] || [ "$FTP_PASS" = "BURAYA_FTP_SIFRENIZI_YAZIN" ]; then
+    echo -e "${RED}Hata: .env dosyasinda FTP_PASS ayarlanmamis!${NC}"
+    exit 1
+  fi
+
+  do_clean
+  do_build
+
+  echo -e "${CYAN}» FTP ile sunucuya yukleniyor...${NC}"
+  echo -e "${YELLOW}  Host: $FTP_HOST | Kullanici: $FTP_USER | Dizin: $FTP_REMOTE_DIR${NC}"
+
+  lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" <<EOF
+set ssl:verify-certificate no
+set ftp:ssl-allow yes
+mirror --reverse --delete --verbose --parallel=4 \
+  --exclude-glob .DS_Store \
+  --exclude-glob .htaccess \
+  "$PUBLIC_DIR" "$FTP_REMOTE_DIR"
+bye
+EOF
+
+  echo ""
+  echo -e "${GREEN}========================================${NC}"
+  echo -e "${GREEN}  FTP deploy tamamlandi!${NC}"
+  echo -e "${GREEN}========================================${NC}"
+}
+
 # ============================================
 #  Ana Akis
 # ============================================
@@ -89,5 +132,6 @@ case "${1:-help}" in
   clean)  do_clean  ;;
   zip)    do_zip    ;;
   deploy) do_deploy ;;
+  ftp)    do_ftp    ;;
   help|*) usage     ;;
 esac

@@ -9,4 +9,6 @@ Benimle iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz:
 
 🔗 **LinkedIn:** [linkedin.com/in/tunagrskn](https://www.linkedin.com/in/tunagrskn)
 
-💻 **GitHub:** [github.com/tunagrskn](https://github.com/tunagrskn)
+💻 **GitHub:** [github.com/tunagirisken](https://github.com/tunagirisken)
+
+✍️ **Medium:** [medium.com/@tunagirisken](https://medium.com/@tunagirisken)

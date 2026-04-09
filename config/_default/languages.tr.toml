@@ -15,11 +15,12 @@ title = "Tuna Girişken"
   name = "Tuna Girişken"
   image = "img/new_profile.jpeg"
   headline = "Gömülü Yazılım Mühendisi @ Karluna Engineering"
-  bio = "Savunma ve otomotiv sektörlerinde 5 yılı aşkın deneyime sahip bir Kıdemli Gömülü Yazılım Mühendisi olarak, Baykar Teknoloji ve TÜBİTAK SAGE'de emniyet kritik aviyonik ve gömülü yazılım mimarileri geliştirdim. Bugün ise gerçek zamanlı sistemler, gömülü Linux ve güvenli haberleşme uzmanlığım ile elektrikli araçlar için uçtan uca bir Telematics Control Unit (TCU) sisteminin geliştirmesine teknik liderlik ediyorum."
+  bio = "Savunma ve otomotiv sektörlerinde 5 yılı aşkın deneyime sahip bir Kıdemli Gömülü Yazılım Mühendisi olarak, Baykar Teknoloji ve TÜBİTAK SAGE'de emniyet kritik aviyonik ve gömülü yazılım mimarileri geliştirdim. Bugün ise gerçek zamanlı sistemler, gömülü Linux ve güvenli haberleşme uzmanlığım ile elektrikli araçlar için uçtan uca bir Telematics Control Unit (TCU) sistemini geliştiriyorum."
   links = [
     { email = "mailto:info@tunagirisken.com" },
-    { github = "https://github.com/tunagrskn" },
-    { linkedin = "https://www.linkedin.com/in/tunagrskn" }
+    { github = "https://github.com/tunagirisken" },
+    { linkedin = "https://www.linkedin.com/in/tunagrskn" },
+    { medium = "https://medium.com/@tunagirisken" }
   ]
 
 [[menus.main]]
@@ -45,8 +46,13 @@ title = "Tuna Girişken"
 # Footer Menüsü
 [[menus.footer]]
   name = "GitHub"
-  url = "https://github.com/tunagrskn"
+  url = "https://github.com/tunagirisken"
   weight = 10
+
+[[menus.footer]]
+  name = "Medium"
+  url = "https://medium.com/@tunagirisken"
+  weight = 15
 
 [[menus.footer]]
   name = "LinkedIn"
